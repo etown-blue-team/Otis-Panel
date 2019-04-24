@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Otis Panel | Network</title>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- For Importing/Displaying CSV files -->
+    <script src="jquery-csv.js"></script>
+
+
+    <style>
+
+    .networkPic img{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 250px;
+        height: auto;
+    }
+
+    li {
+        padding: 10px 12px;
+    }
+
+    li:hover {
+        background-color: lightgreen;
+    }
+
+    li:active {
+        background-color: lightgreen;
+    }
+
+    div.tabContent {
+        padding: 6px 12px;
+        color: black;
+    }
+
+    div.tab {
+        color: white;
+        cursor: pointer;
+    }
+
+    </style>
+
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Otis Panel</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+    <div class="tab">
+      <ul class="nav navbar-nav">
+          <li class="active" class="tabLinks" onclick="openTab(event, 'Home')">Home</li>
+          <li class="tabLinks" onclick="openTab(event, 'Network')">Network</li>
+          <li class="tabLinks" onclick="openTab(event, 'About')">About</li>
+      </ul>
+        </div>
+    </div>
+  </div>
+</nav>
+
+<br/> <br/>
+
+<!-- Welcome tab -->
+<div id="Home" class="tabContent">
+
+    <div class="networkPic">
+        <img src="/static/otisLogo.png" alt="Otis Logo">
+    </div>
+
+    <p align="center">Otis Version 1.0</p><br /><br />
+    <p align="center">To upload and train data, click the Network tab</p>
+    <p align="center">To learn more about this application, click the About tab</p>
+</div>
+
+<!-- Tab for uploading/displaying CSV data and other statistics -->
+<div id="Network" class="tabContent">
+    <div class="container">
+        <div class="table">
+            <h2>File Upload</h2>
+            <div>
+                <button type="button" name="load_data" id="load_data" class="btn btn-info">Load Data</button>
+            </div>
+            <br />
+        </div>
+    </div>
+</div>
+
+<!-- Tab explaining functionality/technicality of Otis Panel -->
+<div id="About" class="tabContent">
+    <p>***Insert content for About page***</p>
+</div>
+
+
+</body>
+</html>
+
+<!-- Function to display formatted CSV table -->
+<script>
+
+</script>
+
+
+<!-- Function to display different tabs -->
+<script>
+    function openTab(evt, tabName) {
+        var i, tabContent, tabLinks;
+        tabContent = document.getElementsByClassName("tabContent");
+        for (i = 0; i < tabContent.length; i++) {
+            tabContent[i].style.display = "none";
+        }
+        tabLinks = document.getElementsByClassName("tabLinks");
+        for (i = 0; i < tabLinks.length; i++) {
+            tabLinks[i].className = tabLinks[i].className.replace("active", "");
+        }
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += "active";
+    }
+</script>
+
