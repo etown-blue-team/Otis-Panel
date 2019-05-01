@@ -1,0 +1,223 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1", shrink-to-fit="no">
+    <title>Otis Panel | Network</title>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!--        *******CLAY'S LINKS*******
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+      <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
+-->
+
+    <style>
+
+    .networkPic img{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 250px;
+        height: auto;
+    }
+
+    li.tabLinks {
+        padding: 10px 12px;
+    }
+
+
+    li.tabLinks:hover {
+        background-color: lightgreen;
+    }
+
+    li.tabLinks:active {
+        background-color: lightgreen;
+    }
+
+
+    div.tab-content {
+        padding: 6px 24px;
+        color: black;
+    }
+
+    </style>
+
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Otis Panel</a>
+    </div>
+<div class="container">
+  <ul class="nav nav-tabs">
+    <li  class="tabLinks"><a data-toggle="tab" href="#home">Home</a></li>
+    <li class="tabLinks"><a data-toggle="tab" href="#network">Network</a></li>
+    <li class="tabLinks"><a data-toggle="tab" href="#about">About</a></li>
+  </ul>
+    </div>
+  </div>
+</nav>
+
+    <!-- Different tabs -->
+<div class="tab-content">
+
+        <!-- Home Tab -->
+    <div id="home" class="tab-pane fade in active">
+        <br/><br/>
+     <div class="networkPic">
+        <img src="/static/otisLogo.png" alt="Otis Logo">
+    </div>
+        <p align="center"><font size="4"><b>Otis Version 1.0</b></font></p><br /><br />
+        <p align="center">To upload and train data, click the Network tab</p>
+        <p align="center">To learn more about this application, click the About tab</p>
+    </div>
+
+        <!-- Tab to import data files and try out Network -->
+    <div id="network" class="tab-pane fade">
+      <div class="table">
+            <h2>File Upload</h2>
+                <form action="/data" method="post" enctype="multipart/form-data">
+                    <p>Training Start <input type = "text" name = "trainstart" /></p>
+                    <p>Training End <input type = "text" name = "trainend" /></p>
+                    <p>Testing Start <input type = "text" name = "teststart" /></p>
+                    <p>Testing End <input type ="text" name = "testend" /></p>
+                    <p>Output Column <input type ="text" name = "output" /></p>
+                    <p><input type="file" name="data_file" /></p>
+                    <input type="submit" />
+                </form>
+             <br />
+      </div>
+    </div>
+
+        <!-- Tab explaining functionality/technicality of Otis Panel -->
+    <div id="about" class="tab-pane fade">
+        <div class="container" align="center">
+			<div class="row">
+				<div class="col">
+					<br><br>
+					&nbsp
+                    <img src="/static/otisLogo.png" alt="Otis Logo" height="auto" width="200px">
+                    <br><b>
+                    <font size="32">Otis</font></b><br>
+					</div>
+					<div class="col">
+						<br>
+						<div class="card" style="width: 35rem;">
+							<div class="card-body">
+								<h5 class="card-title">About</h5>
+								<p class="card-text">
+                                    Held under the MIT License | Open Source<br>
+									<br><br>
+									Made by Scrum Team #3 (Blue Team)
+                                    <br>
+                                    Clay Buxton | Kevin Carman |  Sarah Fake | Lousheng Moua | Anh Nguyen
+
+								</p>
+							</div>
+						</div>
+						<br><br>
+						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  						Technical Specifications
+						</button>
+						<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						  <div class="modal-dialog modal-xl" role="document">
+						    <div class="modal-content">
+						      <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabel"><b>Technical Specifications</b></h5>
+						        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						          <span aria-hidden="true">&times;</span>
+						        </button>
+						      </div>
+						      <div class="modal-body">
+						        Otis runs off Python 3.7.x<br/>
+											<div class="row">
+												<div class="col">
+													Dependencies<br/>
+                                                    Python 3.7.x<br/>
+                                                    Flask 0.12.2+<br/>
+                                                    plotly<br/>
+                                                    numpy==1.16.2<br/>
+                                                    pandas==0.24.2<br/>
+                                                    python-dateutil==2.8.0<br/>
+                                                    pytz==2018.9<br/>
+                                                    scikit-learn==0.20.3<br/>
+                                                    scipy==1.2.1<br/>
+                                                    six==1.12.0<br/>
+                                                    sklearn==0.0<br/>
+                                                    pytest==4.4.1<br/>
+                                                    pytest-cov==2.6.1<br/>
+                                                    <br><br>
+												</div>
+												<div class="col">
+													<b>To run Otis</b>
+													To run Otis a python virtual environment is <b>required</b><br>
+													After cloning the Repository, start the virtualenv by running <code>...ENTER CODE...</code><br>
+													Flask will now be running on 127.0.0.1:5000<br><br>
+													<b>To deploy Otis ...</b><br>
+												</div>
+											</div>
+						      </div>
+						      <div class="modal-footer">
+						        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+						      </div>
+						    </div>
+						  </div>
+                        </div>
+					</div>
+			</div>
+		</div>
+
+<br/><br/><br/>
+
+            <!-- Provide background info about Neural Networks -->
+        <div class="container" align="left">
+            <div class="row">
+                <div class="col">
+                    <b><font size="5">Background of Neural Networks</font></b>
+                    <hr />
+                    <p>
+                    Like the neurons in our brain, artificial neural networks (ANNs) attempt to mirror the complexity and follow similar learning patterns to humans.<br/>
+                    <img src="/static/ANNdiagram.jpg">
+                    <p><u><a href="https://www.tutorialspoint.com/artificial_intelligence/artificial_intelligence_neural_networks.htm">Image source</a></u></p>
+                        <h3>History</h3>
+                    ANNs have been around since the <a href="https://en.wikipedia.org/wiki/Artificial_neural_network#History">early 1900s</a> , centering around Perceptrons. A
+                    perceptron is a neuron (artificial of course) that works with binary I/O, taking in 1's and 0's and outputting either a 1 or 0. While this neuron seems limited
+                    with its restriction to binary, the different aspects of ANNs such as weights and biases with layers allow for intricate learning patterns. Below are these aspects
+                    described in more detail: <br/><br/>
+                    <b>Inputs/Outputs:</b> Every network begins with a certain set of inputs, inputs that change when moving across the network to eventually become outputs; outputs that
+                        will most likely be run through the network over and over, hopefully improving in accuracy each time.<br />
+                    <b>Layers:</b> A network has multiple layers with each layer containing a column of nodes, each holding weights and biases. <br/>
+                    <b>Weights:</b> As seen in the diagram, the inputs will travel from left to right through the different layers. It is the weights that determine what path (line)
+                        each input will take. Placing a higher weight to a path will increase the probability of an input taking that specified route.<br/>
+                    <b>Bias:</b>When the inputs travel through the network, each node carries a bias, a value that changes as the network learns over multiple iterations, or epochs. <br/>
+                    <b>Epochs:</b> An epoch is one iteration through the network. Though the more the merrier usually holds true for epochs, too many can lead to a term called overfitting,
+                        when the network iterates so much it ceases to learn and merely follows the pattern laid out before it.<br/>
+                    <b>Cost Function:</b> The cost function is implemented to calculate how well the network is learning in relation to what the weights/biases are set at and become.<br/>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
