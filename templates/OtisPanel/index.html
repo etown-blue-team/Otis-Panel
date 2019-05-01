@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,13 +9,9 @@
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-    <!-- For Importing/Displaying CSV files -->
-    <script src="jquery-csv.js"></script>
-
 
     <style>
 
@@ -53,6 +50,7 @@
 </head>
 <body>
 
+
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -63,22 +61,19 @@
       </button>
       <a class="navbar-brand" href="#">Otis Panel</a>
     </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-    <div class="tab">
-      <ul class="nav navbar-nav">
-          <li class="active" class="tabLinks" onclick="openTab(event, 'Home')">Home</li>
-          <li class="tabLinks" onclick="openTab(event, 'Network')">Network</li>
-          <li class="tabLinks" onclick="openTab(event, 'About')">About</li>
-      </ul>
-        </div>
-    </div>
-  </div>
+<div class="container">
+  <ul class="nav nav-tabs">
+    <li class="active" class="tabLinks"><a data-toggle="tab" href="#home">Home</a></li>
+    <li class="tabLinks"><a data-toggle="tab" href="#network">Network</a></li>
+    <li class="tabLinks"><a data-toggle="tab" href="#about">About</a></li>
+  </ul>
 </nav>
 
-<br/> <br/>
 
-<!-- Welcome tab -->
-<div id="Home" class="tabContent">
+
+  <div class="tabContent">
+    <div id="home" class="tab-pane fade in active">
+     <div class="tabContent">
 
     <div class="networkPic">
         <img src="/static/otisLogo.png" alt="Otis Logo">
@@ -87,26 +82,43 @@
     <p align="center">Otis Version 1.0</p><br /><br />
     <p align="center">To upload and train data, click the Network tab</p>
     <p align="center">To learn more about this application, click the About tab</p>
-</div>
+   </div>
+ </div>
 
-<!-- Tab for uploading/displaying CSV data and other statistics -->
-<div id="Network" class="tabContent">
-    <div class="container">
+  <div id="network" class="tab-pane fade">
         <div class="table">
             <h2>File Upload</h2>
-            <div>
-                <button type="button" name="load_data" id="load_data" class="btn btn-info">Load Data</button>
-            </div>
-            <br />
-        </div>
+            	<form action="/data" method=post class="form-inline" enctype="multipart/form-data">
+      		<p><input class="btn btn-outline-success" type=file name=data_file>
+					<input class="btn btn-outline-success" type=submit value=Upload>
+    		</form>
+          <br />
     </div>
 </div>
 
-<!-- Tab explaining functionality/technicality of Otis Panel -->
-<div id="About" class="tabContent">
-    <p>***Insert content for About page***</p>
-</div>
 
+<!-- Tab explaining functionality/technicality of Otis Panel -->
+
+<div id="about" class="tab-pane fade">
+        <div class="row">
+        <div class="network-background">
+            <div class="col-sm">
+                <p>Test</p>
+            </div>
+        </div>
+        <div class="authors & git link">
+            <div class="col-sm">
+                <p>Test 2</p>
+            </div>
+        </div>
+        <div class="specs">
+             <div class="col-sm">
+                <p>Test 3</p>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
 
 </body>
 </html>
