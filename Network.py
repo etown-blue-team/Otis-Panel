@@ -31,11 +31,8 @@ class Network:
         hiddenWeights = np.random.rand(self.hiddenLayers - 1, nodesHidden, nodesHidden)
         outputWeights = np.random.rand(nodesHidden, nodesOutput)
 
-        i = 0
         for epoch in range(epochs):
             # =====[ Feed Forward ]=====
-            i += 1
-            print(i)
             # Input -> Hidden
             inputLayerNodeValues = self.sigmoid(np.dot(self.inData, inputWeights))
 

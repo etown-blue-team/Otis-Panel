@@ -38,8 +38,6 @@ def getinfo():
     indata = data.drop(data.columns[output - 1], axis=1)
 
     '''Testing purposes to ensure data is placed correctly'''
-    print(outdata)
-    print(indata)
 
     '''Further separation of daata file'''
     #inTrain, inTest, outTrain, outTest = train_test_split(indata, outdata, test_size=0.3, random_state=101)
@@ -62,7 +60,6 @@ def getinfo():
     neural = Network(inTrain.values, outTrain.values)
     Network.train(neural, 1000)
     outputList = pd.DataFrame(Network.run(neural, inTest))
-    print(outputList)
 
     return render_template("view.html", tables=[inTest.to_html(classes='intext'), outTest.to_html(classes='outTest'),outputList.to_html(classes='outTest')],titles = ['na','IN','OUT','OTIS'])
 
