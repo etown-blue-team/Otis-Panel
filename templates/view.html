@@ -5,8 +5,11 @@
     <title></title>
 </head>
 <body>
-
-    File Upload successful and data received.
+    {% for table in tables %}
+        <h2>{{titles[loop.index]}}</h2>
+        {{ table|safe }}
+    {% endfor %}
+    
 
 
 </body>

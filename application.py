@@ -30,10 +30,6 @@ def getinfo():
     data = pd.read_csv(stream)
 
     '''Get user specs from form'''
-    trainstart = result['trainstart']
-    trainend = result['trainend']
-    teststart = result['teststart']
-    testend = result['testend']
     output = result['output']
     output = int(output)
 
@@ -46,29 +42,29 @@ def getinfo():
     print(indata)
 
     '''Further separation of daata file'''
-    inTrain, inTest, outTrain, outTest = train_test_split(indata, outdata, test_size=0.3, random_state=101)
+    #inTrain, inTest, outTrain, outTest = train_test_split(indata, outdata, test_size=0.3, random_state=101)
 
     # print(inTrain)
     # print(inTest)
     # print(outTrain)
     # print(outTest)
 
+
+    inTest = indata.tail(1)
+    outTest = outdata.tail(1)
+
+    inTrain = indata[:-1]
+    outTrain = outdata[:-1]
+
+        
+
     '''Train data'''
     neural = Network(inTrain.values, outTrain.values)
     Network.train(neural, 1000)
-    outputList = Network.run(neural, inTest)
+    outputList = pd.DataFrame(Network.run(neural, inTest))
     print(outputList)
 
-    return render_template("view.html", outputList=outputList)
-
-
-
-
-
-
-
-
-
+    return render_template("view.html", tables=[inTest.to_html(classes='intext'), outTest.to_html(classes='outTest'),outputList.to_html(classes='outTest')],titles = ['na','IN','OUT','OTIS'])
 
 if __name__ == '__main__':
     app.run(debug=True)
