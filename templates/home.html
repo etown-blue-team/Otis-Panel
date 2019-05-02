@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,18 +11,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-    <!--        *******CLAY'S LINKS*******
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-      <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
-    <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
--->
 
     <style>
 
@@ -47,7 +34,6 @@
     li.tabLinks:active {
         background-color: lightgreen;
     }
-
 
     div.tab-content {
         padding: 6px 24px;
@@ -80,21 +66,70 @@
   </div>
 </nav>
 
-    <!-- Different tabs -->
+    <!-- Tab Content -->
 <div class="tab-content">
 
         <!-- Home Tab -->
     <div id="home" class="tab-pane fade in active">
         <br/><br/>
-     <div class="networkPic">
-        <img src="/static/otisLogo.png" alt="Otis Logo">
-    </div>
+        <div class="networkPic">
+            <img src="/static/otisLogo.png" alt="Otis Logo">
+        </div>
         <p align="center"><font size="4"><b>Otis Version 1.0</b></font></p><br /><br />
-        <p align="center">To upload and train data, click the Network tab</p>
-        <p align="center">To learn more about this application, click the About tab</p>
+        <p align="center">To upload and train data, click the Network tab **Still in testing**</p>
+        <p align="center">To learn more about this application and nerual networks, click the About tab</p>
+        <br />
+
+        <div class="col">
+						<br>
+						<div class="card" style="width: 35rem;">
+                                <!-- Instructions to use the Shell-->
+							<div class="card-body">
+                                <h5 class="card-title"><b>Unsure of how to proceed?</b></h5><br/>
+                                <p class="card-text" align="left">
+                                        Running Otis:
+                                    <ul align="left">
+                                        <li>Import the dataset.</li>
+                                        <li>Import command accepts a string specifying a local file or url, or it will ask for this information if nothing is provided.</li>
+                                        <li>View or clear the data, or import new data.</li>
+                                        <li>View accepts an integer specifying how many rows of data to display, or will display all rows if nothing is provided.</li>
+                                        <li>Train the network. </li>
+                                        <li>Train accepts an integer specifying the output row, or will ask for the output row if nothing is provided.</li>
+                                        <li>Run the network.</li><br/>
+                                    </ul>
+                                </p>
+                            </div>
+                        </div>
+                            <h5 class="card-title"><b>Not familiar with Python and/or Git?</b></h5>
+								<p class="card-text" align="left">
+                                    For the list of commands available on the shell, see below.<br/><br/>
+								</p>
+
+                        <div class="col">
+                        <h5><b>Using the Shell | Commands</b></h5>
+                                      <p>After cloning the Otis repository to your local machine, the simple command
+                                      <code>python Shell.py</code> will get the shell up and running.</p>
+                                      <p>Once the network is up and running, choose from one of these commands to
+                                      try out the network:</p>
+                                      <ul>
+                                          <li>import [source]      : Imports data from source (URL or File)</li>
+                                          <li>export [destination] : Exports data to a CSV</li>
+                                          <li>clear                : Clears current data</li>
+                                          <li>view [rows]          : View [rows] rows</li>
+                                          <li>train                : Trains network based on imported data</li>
+                                          <li>run  [data]          : Get output from network</li>
+                                          <li>help                 : Show this message</li>
+                                          <li>exit                 : Exit Otis</li>
+                                      </ul>
+                        </div>
+        </div>
+        <br/><br/><br/>
+        <footer align="right">Elizabethtown College Scrum Team no. 3 | Last Updated: 5/02/2019</footer>
     </div>
 
-        <!-- Tab to import data files and try out Network -->
+
+
+        <!-- Tab to import data files and try out Network **Still in testing, but can successfully upload CSV files**-->
     <div id="network" class="tab-pane fade">
       <div class="table">
             <h2>File Upload</h2>
@@ -106,8 +141,9 @@
                     <p>Output Column <input type ="text" name = "output" /></p>
                     <p><input type="file" name="data_file" /></p>
                     <input type="submit" />
-                </form>
-             <br />
+                </form><br/><br/><br/><br/><br/>
+             <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+          <footer align="right">Elizabethtown College Scrum Team no. 3 | Last Updated: 5/02/2019</footer>
       </div>
     </div>
 
@@ -126,18 +162,18 @@
 						<br>
 						<div class="card" style="width: 35rem;">
 							<div class="card-body">
-								<h5 class="card-title">About</h5>
+                                <h5 class="card-title">About | <a href="https://github.com/etown-blue-team">Git</a></h5>
 								<p class="card-text">
                                     Held under the MIT License | Open Source<br>
 									<br><br>
 									Made by Scrum Team #3 (Blue Team)
                                     <br>
                                     Clay Buxton | Kevin Carman |  Sarah Fake | Lousheng Moua | Anh Nguyen
-
 								</p>
 							</div>
 						</div>
 						<br><br>
+                            <!-- Specs Pop-up Window -->
 						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
   						Technical Specifications
 						</button>
@@ -157,7 +193,6 @@
 													Dependencies<br/>
                                                     Python 3.7.x<br/>
                                                     Flask 0.12.2+<br/>
-                                                    plotly<br/>
                                                     numpy==1.16.2<br/>
                                                     pandas==0.24.2<br/>
                                                     python-dateutil==2.8.0<br/>
@@ -171,11 +206,10 @@
                                                     <br><br>
 												</div>
 												<div class="col">
-													<b>To run Otis</b>
-													To run Otis a python virtual environment is <b>required</b><br>
-													After cloning the Repository, start the virtualenv by running <code>...ENTER CODE...</code><br>
-													Flask will now be running on 127.0.0.1:5000<br><br>
-													<b>To deploy Otis ...</b><br>
+													<b>To run Otis Panel</b><br/>
+													To run a python virtual environment is <b>required</b><br>
+													After cloning the Repository, start the virtualenv by running <code>export FLASK_APP=application.py</code><br>
+													Flask will now be running on 127.0.0.1:5000, to run enter <code>flask run</code><br><br><br>
 												</div>
 											</div>
 						      </div>
@@ -202,22 +236,37 @@
                     <img src="/static/ANNdiagram.jpg">
                     <p><u><a href="https://www.tutorialspoint.com/artificial_intelligence/artificial_intelligence_neural_networks.htm">Image source</a></u></p>
                         <h3>History</h3>
-                    ANNs have been around since the <a href="https://en.wikipedia.org/wiki/Artificial_neural_network#History">early 1900s</a> , centering around Perceptrons. A
+                    ANNs have been around since the <a href="https://en.wikipedia.org/wiki/Artificial_neural_network#History">early 1900s</a> , centering around perceptrons. A
                     perceptron is a neuron (artificial of course) that works with binary I/O, taking in 1's and 0's and outputting either a 1 or 0. While this neuron seems limited
                     with its restriction to binary, the different aspects of ANNs such as weights and biases with layers allow for intricate learning patterns. Below are these aspects
                     described in more detail: <br/><br/>
+
+                    <h3>Terminology</h3><br/>
                     <b>Inputs/Outputs:</b> Every network begins with a certain set of inputs, inputs that change when moving across the network to eventually become outputs; outputs that
                         will most likely be run through the network over and over, hopefully improving in accuracy each time.<br />
-                    <b>Layers:</b> A network has multiple layers with each layer containing a column of nodes, each holding weights and biases. <br/>
-                    <b>Weights:</b> As seen in the diagram, the inputs will travel from left to right through the different layers. It is the weights that determine what path (line)
+                    <b>Layers:</b> A network has multiple layers with each layer containing a column of nodes and each node holding weights and biases. <br/>
+                    <b>Weights:</b> As seen in the diagram above, the inputs will travel from left to right through the different layers. It is the weights that determine what path (line)
                         each input will take. Placing a higher weight to a path will increase the probability of an input taking that specified route.<br/>
                     <b>Bias:</b>When the inputs travel through the network, each node carries a bias, a value that changes as the network learns over multiple iterations, or epochs. <br/>
-                    <b>Epochs:</b> An epoch is one iteration through the network. Though the more the merrier usually holds true for epochs, too many can lead to a term called overfitting,
+                    <b>Epochs:</b> An epoch is one iteration through the network. Though the more the merrier usually holds true for epochs, too many can lead to a term called <b>overfitting</b>,
                         when the network iterates so much it ceases to learn and merely follows the pattern laid out before it.<br/>
                     <b>Cost Function:</b> The cost function is implemented to calculate how well the network is learning in relation to what the weights/biases are set at and become.<br/>
+                    <br/><br/>
+                    <b>These descriptions of ANN terminology provide just the tip of the iceberg 🏔️</b><br/>
+                    For further research on neural networks, check out these links:<br/><br/>
+                    <a href="https://towardsdatascience.com/neural-network-on-iris-data-4e99601a42c8">Iris Data set</a> - one of the most popular data sets for ANN learning <br/>
+                    <a href="http://neuralnetworksanddeeplearning.com/chap1.html">Extensive information on neural networks</a><br/>
+                    Interested in developing and testing your own neural network? Check out <a href="https://gym.openai.com/">Gym</a><br/>
+                    <a href="https://github.com/ArztSamuel/Applying_EANNs">Applying EANNS</a>: neat example of feedforward neural network through unity<br/>
                     </p>
+                    <br/><br/>
+                    <footer align="right">Elizabethtown College Scrum Team no. 3 | Last Updated: 5/02/2019</footer>
                 </div>
             </div>
         </div>
     </div>
+
 </div>
+
+</body>
+</html>

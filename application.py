@@ -29,7 +29,7 @@ def getinfo():
     stream = io.StringIO(f.stream.read().decode("UTF8"), newline=None)
     data = pd.read_csv(stream)
 
-
+    '''Get user specs from form'''
     trainstart = result['trainstart']
     trainend = result['trainend']
     teststart = result['teststart']
@@ -37,13 +37,15 @@ def getinfo():
     output = result['output']
     output = int(output)
 
-
+    '''Separate input data from output data'''
     outdata = data.iloc[:, output - 1:output]
     indata = data.drop(data.columns[output - 1], axis=1)
 
+    '''Testing purposes to ensure data is placed correctly'''
     print(outdata)
     print(indata)
 
+    '''Further separation of daata file'''
     inTrain, inTest, outTrain, outTest = train_test_split(indata, outdata, test_size=0.3, random_state=101)
 
     # print(inTrain)
@@ -51,6 +53,7 @@ def getinfo():
     # print(outTrain)
     # print(outTest)
 
+    '''Train data'''
     neural = Network(inTrain.values, outTrain.values)
     Network.train(neural, 1000)
     outputList = Network.run(neural, inTest)
