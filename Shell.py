@@ -92,6 +92,9 @@ class Shell:
 			neural = Network(inTrain.values,outTrain.values)
 			Network.train(neural, 1000)
 			Network.run(neural, inTest)
+
+
+
 		
 	def clear(self):
 		#TODO: Clear Network Too

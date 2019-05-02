@@ -7,8 +7,6 @@ from werkzeug import *
 from flask import Flask, render_template, request, redirect, url_for, make_response
 
 ''' Import from Otis repo '''
-import Shell as shell
-import DictionaryBuilder as db
 from Network import *
 
 
@@ -29,18 +27,50 @@ def getinfo():
 
     f = request.files['data_file']
     stream = io.StringIO(f.stream.read().decode("UTF8"), newline=None)
-    readdata = csv.reader(stream)
+    data = pd.read_csv(stream)
 
-    for row in readdata:
-        data.append(row)
 
-    data = np.array(data)
-    print(data)
+    trainstart = result['trainstart']
+    trainend = result['trainend']
+    teststart = result['teststart']
+    testend = result['testend']
+    output = result['output']
+    output = int(output)
 
-    return render_template("view.html", data=data, result=result)
 
-    if __name__ == '__main__':
-        app.run(debug=True)
+    outdata = data.iloc[:, output - 1:output]
+    indata = data.drop(data.columns[output - 1], axis=1)
+
+    print(outdata)
+    print(indata)
+
+    inTrain, inTest, outTrain, outTest = train_test_split(indata, outdata, test_size=0.3, random_state=101)
+
+    # print(inTrain)
+    # print(inTest)
+    # print(outTrain)
+    # print(outTest)
+
+    neural = Network(inTrain.values, outTrain.values)
+    Network.train(neural, 1000)
+    outputList = Network.run(neural, inTest)
+    print(outputList)
+
+    return render_template("view.html", outputList=outputList)
+
+
+
+
+
+
+
+
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
 
 
 
